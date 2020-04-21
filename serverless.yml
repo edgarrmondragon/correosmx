@@ -33,4 +33,4 @@ functions:
       - schedule:
           name: 'scheduled-status'
           description: 'At 8:00, 14:00 and 20:00'
-          rate: cron(0 1,13,17 * * ? *)
+          rate: cron(0 1,13,19 * * ? *)
