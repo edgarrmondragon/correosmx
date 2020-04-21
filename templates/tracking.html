@@ -1,0 +1,22 @@
+<body>
+  <table border="1" cellpadding="6" cellspacing="0" width="620px">
+    <thead>
+      <tr>
+        <th>Fecha</th>
+        <th>Hora</th>
+        <th>Origen</th>
+        <th>Evento</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in events -%}
+      <tr>
+        <td>{{ row.Fecha }}</td>
+        <td>{{ row.Hora }}</td>
+        <td>{{ row.Origen }}</td>
+        <td>{{ row.Evento }}</td>
+      </tr>
+      {% endfor -%}
+    </tbody>
+  </table>
+</body>

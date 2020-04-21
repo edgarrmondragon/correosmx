@@ -1,0 +1,36 @@
+service: correosmx
+
+provider:
+  name: aws
+  runtime: python3.8
+  region: us-east-1
+
+plugins:
+  - serverless-python-requirements
+
+custom:
+  pythonRequirements:
+    dockerizePip: false
+
+package:
+  excludeDevDependencies: true
+  exclude:
+    - '*.env'
+    - env/**
+    - node_modules/**
+    - package*.json
+
+functions:
+  send_status:
+    handler: handler.send_status
+    environment:
+      GUIA: ${env:GUIA}
+      PERIODO: ${env:PERIODO,2020}
+      EMAIL_FROM: ${env:EMAIL_FROM}
+      EMAIL_TO: ${env:EMAIL_TO}
+      SENDGRID_API_KEY: ${env:SENDGRID_API_KEY}
+    events:
+      - schedule:
+          name: 'scheduled-status'
+          description: 'At 8:00, 14:00 and 20:00'
+          rate: cron(0 1,13,17 * * ? *)
