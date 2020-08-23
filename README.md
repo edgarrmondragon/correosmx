@@ -10,6 +10,14 @@
 | `SENDGRID_API_KEY` | You can read more [here][sendgrid]. You can send 100 emails/day with a free account |
 | `PERIODO`          | Year (default `2020`)                                                               |
 
+## Installation
+
+Requires installation of npm packages
+
+```shell
+npm install
+```
+
 ## Deploy
 
 This project uses the Serverless Framework to manage the function and its upstream resources:
