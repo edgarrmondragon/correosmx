@@ -70,8 +70,8 @@ if __name__ == '__main__':
         data = get_tracking_data(s, validation, GUIA, PERIODO)
 
     message = Mail(
-        from_email='edgarrm358@gmail.com',
-        to_emails='edgarrm358@gmail.com',
+        from_email=os.getenv('EMAIL_FROM'),
+        to_emails=os.getenv('EMAIL_TO'),
         subject='Seguimiento de envío',
         html_content=render_tracking(data, env),
     )
